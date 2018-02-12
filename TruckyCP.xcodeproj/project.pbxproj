@@ -10,6 +10,8 @@
 		4E085E40202F973C001D65B4 /* MyBookingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E085E3F202F973C001D65B4 /* MyBookingsController.swift */; };
 		4E085E43202F9777001D65B4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E085E42202F9777001D65B4 /* MapViewController.swift */; };
 		4E085E45202F9886001D65B4 /* BookingDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E085E44202F9886001D65B4 /* BookingDetailsController.swift */; };
+		4E8D330D2030C5DD007A8FF9 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D330C2030C5DD007A8FF9 /* BookingViewController.swift */; };
+		4E8D33172030E0A9007A8FF9 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D33162030E0A9007A8FF9 /* iCarousel.m */; };
 		4EFDAEA3202CD38B00BF8FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFDAEA2202CD38B00BF8FC3 /* AppDelegate.swift */; };
 		4EFDAEA8202CD38B00BF8FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFDAEA6202CD38B00BF8FC3 /* Main.storyboard */; };
 		4EFDAEAA202CD38B00BF8FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFDAEA9202CD38B00BF8FC3 /* Assets.xcassets */; };
@@ -21,6 +23,10 @@
 		4E085E3F202F973C001D65B4 /* MyBookingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookingsController.swift; sourceTree = "<group>"; };
 		4E085E42202F9777001D65B4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4E085E44202F9886001D65B4 /* BookingDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsController.swift; sourceTree = "<group>"; };
+		4E8D330C2030C5DD007A8FF9 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		4E8D33142030E0A8007A8FF9 /* TruckyCP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TruckyCP-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E8D33152030E0A9007A8FF9 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		4E8D33162030E0A9007A8FF9 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		4EFDAE9F202CD38B00BF8FC3 /* TruckyCP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckyCP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFDAEA2202CD38B00BF8FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EFDAEA7202CD38B00BF8FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +54,7 @@
 				4EFDAEB4202CDD3000BF8FC3 /* HomeViewController.swift */,
 				4E085E42202F9777001D65B4 /* MapViewController.swift */,
 				4E085E44202F9886001D65B4 /* BookingDetailsController.swift */,
+				4E8D330C2030C5DD007A8FF9 /* BookingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -71,12 +78,15 @@
 		4EFDAEA1202CD38B00BF8FC3 /* TruckyCP */ = {
 			isa = PBXGroup;
 			children = (
+				4E8D33152030E0A9007A8FF9 /* iCarousel.h */,
+				4E8D33162030E0A9007A8FF9 /* iCarousel.m */,
 				4EFDAEA2202CD38B00BF8FC3 /* AppDelegate.swift */,
 				4E085E41202F974F001D65B4 /* Controllers */,
 				4EFDAEA6202CD38B00BF8FC3 /* Main.storyboard */,
 				4EFDAEA9202CD38B00BF8FC3 /* Assets.xcassets */,
 				4EFDAEAB202CD38B00BF8FC3 /* LaunchScreen.storyboard */,
 				4EFDAEAE202CD38B00BF8FC3 /* Info.plist */,
+				4E8D33142030E0A8007A8FF9 /* TruckyCP-Bridging-Header.h */,
 			);
 			path = TruckyCP;
 			sourceTree = "<group>";
@@ -113,6 +123,7 @@
 				TargetAttributes = {
 					4EFDAE9E202CD38B00BF8FC3 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -157,6 +168,8 @@
 				4EFDAEA3202CD38B00BF8FC3 /* AppDelegate.swift in Sources */,
 				4EFDAEB5202CDD3000BF8FC3 /* HomeViewController.swift in Sources */,
 				4E085E43202F9777001D65B4 /* MapViewController.swift in Sources */,
+				4E8D330D2030C5DD007A8FF9 /* BookingViewController.swift in Sources */,
+				4E8D33172030E0A9007A8FF9 /* iCarousel.m in Sources */,
 				4E085E45202F9886001D65B4 /* BookingDetailsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,11 +307,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TruckyCP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abdul.TruckyCP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TruckyCP/TruckyCP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -308,11 +324,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TruckyCP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abdul.TruckyCP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TruckyCP/TruckyCP-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

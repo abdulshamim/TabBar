@@ -8,28 +8,26 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, HomeControllerDelegate, BookingViewControllerDelegate {
 
+    @IBOutlet weak var containerView: UIView!
+    
+    //let homeVc = HomeViewController()
+    let bookingVC = BookingViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+       // homeVc.homeControllerDelegate = self
+        bookingVC.bookingViewControllerDelegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func bookingButtonPressed(vc: HomeViewController) {
+        self.containerView.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func bookingBackButtnPressed(vc: BookingViewController){
+        self.containerView.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
-    */
-
 }

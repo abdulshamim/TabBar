@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol HomeControllerDelegate {
+    func bookingButtonPressed(vc: HomeViewController)
+}
+
 class HomeViewController: UITabBarController, UITabBarControllerDelegate {
 
     var secondItemImageView: UIImageView!
+    var homeControllerDelegate: HomeControllerDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //selectedIndex = 1
+        selectedIndex = 1
         delegate = self
          
         let secondItemImageView = self.tabBar.subviews[1]
@@ -25,8 +31,8 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag == 2 {
+            homeControllerDelegate?.bookingButtonPressed(vc: self)
             self.secondItemImageView.transform = CGAffineTransform.identity
-           // UIView.animateKeyframes(withDuration: <#T##TimeInterval#>, delay: <#T##TimeInterval#>, options: <#T##UIViewKeyframeAnimationOptions#>, animations: <#T##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
             UIView.animate(withDuration: 0.5, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { () -> Void in
                 let scale = CGAffineTransform.init(scaleX: 2, y: 2)
                 self.secondItemImageView.transform = scale
