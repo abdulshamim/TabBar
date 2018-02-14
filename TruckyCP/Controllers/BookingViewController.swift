@@ -15,6 +15,7 @@ protocol BookingViewControllerDelegate {
 class BookingViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
 
     @IBOutlet weak var firstView: iCarousel!
+    @IBOutlet weak var firstSelectedView: UIView!
     
     var bookingViewControllerDelegate: BookingViewControllerDelegate?
     
@@ -27,7 +28,8 @@ class BookingViewController: UIViewController, iCarouselDelegate, iCarouselDataS
 
         firstView.delegate = self
         firstView.dataSource = self
-        firstView.type = .wheel
+        firstView.type = .linear
+        firstView.scrollToItem(at: 1, animated: true)
        // firstView.isScrollEnabled = false
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -63,10 +65,35 @@ class BookingViewController: UIViewController, iCarouselDelegate, iCarouselDataS
     
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         if option == iCarouselOption.spacing {
-            return value * 1.2
+            return value * 1.5
         }
         return value
     }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        let location = touch?.location(in: firstView)
+        print("\(location)")
+        let animateView = UIView()
+        animateView.frame = CGRect(origin: location!, size: firstSelectedView.bounds.size)
+        animateView.backgroundColor = .red
+        animateView.layer.cornerRadius = animateView.bounds.height/2
+        animateView.layer.masksToBounds = true
+        animateView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+         UIView.animate(withDuration: 0.7, animations: {
+            animateView.center = self.firstSelectedView.center
+            //self.firstSelectedView.center = location!
+            self.firstSelectedView.addSubview(animateView)
+            animateView.transform = CGAffineTransform.identity
+         })
+    }
 }
+
+
+
+
+
+
+
+
+
