@@ -14,74 +14,77 @@ class BookingDetailsController: UIViewController {
     @IBOutlet weak var secondSelectedView: UIView!
     @IBOutlet weak var thirdSelectedView: UIView!
     @IBOutlet weak var fourthSelectedView: UIView!
-    @IBOutlet weak var fifhtSelectedView: UIView!
-    
+   
+    @IBOutlet weak var imageView: UIImageView!
     
     var touchCount = 0
-    
-    var firstPoint = CGPoint()
-    var secondPoint = CGPoint()
-    var thirdPoint = CGPoint()
-    var fourthPoint = CGPoint()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.layer.cornerRadius  = imageView.bounds.height/2
+        imageView.layer.masksToBounds = true
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
         self.tabBarController?.tabBar.isHidden = true
-        
-        self.firstPoint  = self.firstSelectedView.center
-        self.secondPoint = self.secondSelectedView.center
-        self.thirdPoint  = self.thirdSelectedView.center
-        self.fourthPoint = self.fourthSelectedView.center
-        
-        self.firstSelectedView.center  = self.fifhtSelectedView.center
-        self.secondSelectedView.center = self.fifhtSelectedView.center
-        self.thirdSelectedView.center  = self.fifhtSelectedView.center
-        self.fourthSelectedView.center = self.fifhtSelectedView.center
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.firstSelectedView.backgroundColor  = .clear
+        self.secondSelectedView.backgroundColor = .clear
+        self.thirdSelectedView.backgroundColor  = .clear
+        self.fourthSelectedView.backgroundColor = .clear
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    private func makeRound(of view: UIView) {
-        view.layer.cornerRadius  = self.firstSelectedView.bounds.height/2
+    @IBAction func firstButton(_ sender: UIButton) {
+        print("\(sender.center.y)")
+        let view = UIView()
+        view.frame = CGRect(x: sender.center.x, y: sender.center.y, width: 80, height: 80)
+        view.backgroundColor = .red
+        view.layer.cornerRadius  = view.bounds.height/2
         view.layer.masksToBounds = true
-        view.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-    }
-    
-    private func initialTransform() {
-        if self.touchCount == 1 {
-            self.firstSelectedView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        } else if self.touchCount == 2 {
-            self.secondSelectedView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        } else if self.touchCount == 3 {
-            self.thirdSelectedView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        } else if self.touchCount == 4 {
-            self.fourthSelectedView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        }
-    }
-    
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.touchCount += 1
-        self.initialTransform()
+        view.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(withDuration: 0.9, animations: {
-            if self.touchCount == 1 {
-                self.makeRound(of: self.firstSelectedView)
-                self.firstSelectedView.center = self.firstPoint
-            } else if self.touchCount == 2 {
-                self.makeRound(of: self.secondSelectedView)
-                self.secondSelectedView.center = self.secondPoint
-            } else if self.touchCount == 3 {
-                self.makeRound(of: self.thirdSelectedView)
-                self.thirdSelectedView.center = self.thirdPoint
-            } else if self.touchCount == 4 {
-                self.makeRound(of: self.fourthSelectedView)
-                self.fourthSelectedView.center = self.fourthPoint
-            }
+            view.center = self.firstSelectedView.center
+            view.transform = CGAffineTransform.identity
+            self.view.addSubview(view)
         })
     }
     
+    @IBAction func buttonSecond(_ sender: UIButton) {
+        let view = UIImageView()
+        view.frame = imageView.frame
+        view.backgroundColor = .red
+        view.layer.cornerRadius  = view.bounds.height/2
+        view.layer.masksToBounds = true
+        view.image = imageView.screenshot()
+        UIView.animate(withDuration: 0.8, animations: {
+            self.touchCount += 1
+            if self.touchCount == 1 {
+                view.center = self.firstSelectedView.center
+            } else if self.touchCount == 2 {
+                view.center = self.secondSelectedView.center
+            } else if self.touchCount == 3 {
+                view.center = self.thirdSelectedView.center
+            } else if self.touchCount == 4 {
+                view.center = self.fourthSelectedView.center
+            }
+            
+            view.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            self.view.addSubview(view)
+        })
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
